@@ -36,22 +36,20 @@ module.exports = {
     Type: Boolean/String
     Default: none
 
-    Set to `true`, it will output `RewriteBase /`.
-    If you want a custom RewriteBase, just type a string.
+Set to `true`, it will output `RewriteBase /`.
+If you want a custom RewriteBase, just type a string.
 
-    **Example:**
-
-    ```
-    module.exports = {
-        plugins: [
-            {
-                resolve: `gatsby-plugin-htaccess`,
-                options: {
-                    RewriteBase: 'custom/',
-                }
-        },
+```
+module.exports = {
+    plugins: [
+        {
+            resolve: `gatsby-plugin-htaccess`,
+            options: {
+                RewriteBase: 'custom/',
+            }
     },
-    ```
+},
+```
 
 ### Force https
 
@@ -71,8 +69,8 @@ module.exports = {
     Type: Boolean
     Default: false `Options +FollowSymlinks`
 
-    By default `Options +FollowSymlinks` is activated.
-    If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
+By default `Options +FollowSymlinks` is activated.
+If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
 
 ### Custom Redirects
 
@@ -80,5 +78,5 @@ module.exports = {
     Type: array of objects/strings
     Default: none
 
-    By default `Options +FollowSymlinks` is activated.
-    If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
+By default `Options +FollowSymlinks` is activated.
+If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
