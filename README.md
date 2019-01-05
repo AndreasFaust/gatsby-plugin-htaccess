@@ -53,10 +53,9 @@ module.exports = {
 
 ### Force https
 
-| | ||
-Name: | https ||
-Type: | Boolean ||
-Default: | false ||
+| Name: | https |
+| Type: | Boolean |
+| Default: | false |
 
 ### Suppress/force “www” at the beginning of URLs
 
