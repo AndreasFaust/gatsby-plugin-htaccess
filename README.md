@@ -1,7 +1,7 @@
 # Gatsby Plugin Htaccess
 
 **Gatsby Plugin Htaccess** creates a “.htaccess”-file every time a gatsby build is triggered.
-This file contains by default all rules specified by Apache Server Configs v3.0.0 from “HTML5 Boilerplate” (https://github.com/h5bp/server-configs-apache).
+This file contains by default all rules specified by [Apache Server Configs v3.0.0](https://github.com/h5bp/server-configs-apache) by [H5BP](https://github.com/h5bp).
 Additionally, the headers for HTTP caching are set as recommended by the Gatsby team: https://www.gatsbyjs.org/docs/caching/
 
 ## Getting Started
@@ -14,7 +14,7 @@ Additionally, the headers for HTTP caching are set as recommended by the Gatsby 
 
 2. Add to plugins at your gatsby-config.js
 
-```
+```javascript
 module.exports = {
     plugins: [
         {
@@ -32,9 +32,11 @@ module.exports = {
 
 ### Set RewriteBase
 
-    Name: RewriteBase
-    Type: Boolean/String
-    Default: none
+|          |                |
+| -------- | -------------- |
+| Name:    | RewriteBase    |
+| Type:    | Boolean/String |
+| Default: | none           |
 
 Set to `true`, it will output `RewriteBase /`.
 If you want a custom RewriteBase, just type a string.
@@ -69,23 +71,27 @@ module.exports = {
 
 ### Follow Symlinks
 
-    Name: SymLinksIfOwnerMatch
-    Type: Boolean
-    Default: false
+|          |                      |
+| -------- | -------------------- |
+| Name:    | SymLinksIfOwnerMatch |
+| Type:    | Boolean              |
+| Default: | false                |
 
 By default `Options +FollowSymlinks` is activated.
 If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
 
 ### Custom Redirects
 
-    Name: redirects
-    Type: array of objects/strings
-    Default: null
+|          |                          |
+| -------- | ------------------------ |
+| Name:    | redirects                |
+| Type:    | array of objects/strings |
+| Default: | null                     |
 
 Fully customized redirects you can type as string.
 If you have several domains for your site and want them all to link to your main domain, you can setup this via objects with the keys `from` and `to`.
 
-```
+```javascript
 module.exports = {
     plugins: [
         {
@@ -105,13 +111,15 @@ If you want to automatically integrate the Gatsby-redirects, you should generall
 
 ### Custom Rules
 
-    Name: custom
-    Type: string
-    Default: null
+|          |        |
+| -------- | ------ |
+| Name:    | custom |
+| Type:    | string |
+| Default: | null   |
 
 Custom Rules are added at the end of the generated .htaccess-file.
 
-```
+```javascript
 module.exports = {
     plugins: [
         {
@@ -134,6 +142,6 @@ If this plugin is helpful for you, star it.
 
 ## Thanks
 
-This plugin is based on **gatsby-plugin-htaccess-redirects** (https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects) by **Gatsby Central**.
+This plugin is based on [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects) by **Gatsby Central**.
 
-The htaccess-directives are taken from **Apache Server Configs** (https://github.com/h5bp/server-configs-apache) by H5BP.
+The htaccess-directives are taken from [Apache Server Configs](https://github.com/h5bp/server-configs-apache) by [H5BP](https://github.com/h5bp).
