@@ -39,7 +39,7 @@ module.exports = {
 Set to `true`, it will output `RewriteBase /`.
 If you want a custom RewriteBase, just type a string.
 
-```
+```javascript
 module.exports = {
     plugins: [
         {
@@ -61,9 +61,11 @@ module.exports = {
 
 ### Suppress/force “www” at the beginning of URLs
 
-    Name: www
-    Type: Boolean
-    Default: false (== suppress)
+|          |                     |
+| -------- | ------------------- |
+| Name:    | www                 |
+| Type:    | Boolean             |
+| Default: | false (== suppress) |
 
 ### Follow Symlinks
 
