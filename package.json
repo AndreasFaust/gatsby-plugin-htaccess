@@ -1,0 +1,24 @@
+{
+  "name": "gatsby-plugin-htaccess",
+  "version": "1.0.0",
+  "description": "Creates a customizable htaccess-file on build containing the most important default settings for performance and security.",
+  "main": "index.js",
+  "author": "Andreas Faust",
+  "license": "ISC",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "htaccess",
+    "apache"
+  ],
+  "description": "Gatsby plugin which adds a third-party GraphQL API to Gatsby GraphQL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndreasFaust/gatsby-plugin-htaccess"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {}
+}
