@@ -84,7 +84,7 @@ If your hoster does not allow this option, you can switch to `Options +SymLinksI
 
 |          |                          |
 | -------- | ------------------------ |
-| Name:    | redirects                |
+| Name:    | redirect                 |
 | Type:    | array of objects/strings |
 | Default: | null                     |
 
@@ -97,7 +97,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-htaccess`,
             options: {
-                redirects: [
+                redirect: [
                     { from: 'my-domain.com', to: 'mydomain.com' },
                     { from: 'my-other-domain.com', to: 'mydomain.com' },
                     'RewriteRule ^not-existing-domain/?$ /existing-domain [R=301,L,NE]',

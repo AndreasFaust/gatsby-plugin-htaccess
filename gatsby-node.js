@@ -15,7 +15,7 @@ const getContent = (pathToFile, pluginOptions) => {
     let content = contentReadFile(pathToFile)
     content = setWWW(content, pluginOptions.www)
     content = setHTTPS(content, pluginOptions.https)
-    content = setRewrites(content, pluginOptions.redirects)
+    content = setRewrites(content, pluginOptions.redirect)
     content = setRewriteBase(content, pluginOptions.RewriteBase)
     content = setSymlinks(content, pluginOptions.SymLinksIfOwnerMatch)
     content = setCustom(content, pluginOptions.custom)
