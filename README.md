@@ -137,11 +137,11 @@ module.exports = {
 ## Contributing
 
 Every contribution is very much appreciated.
-I am neither a .htaccess-, nor a Gatsby-expert — so feel free to file bugs, feature- and pull-requests.
+Feel free to file bugs, feature- and pull-requests.
 If this plugin is helpful for you, star it.
 
 ## Thanks
 
 This plugin is based on [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects) by **Gatsby Central**.
 
-The htaccess-directives are taken from [Apache Server Configs](https://github.com/h5bp/server-configs-apache) by [H5BP](https://github.com/h5bp).
+The htaccess-directives are taken from [Apache Server Configs](https://github.com/h5bp/server-configs-apache) by **H5BP**.
