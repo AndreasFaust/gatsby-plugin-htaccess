@@ -53,6 +53,7 @@ module.exports = {
 
 ### Force https
 
+| --- | --- |
 | Name: | https |
 | Type: | Boolean |
 | Default: | false |
