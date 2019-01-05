@@ -45,7 +45,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-htaccess`,
             options: {
-                RewriteBase: 'custom/',
+                RewriteBase: '/custom/',
             }
     },
 },
@@ -57,17 +57,17 @@ module.exports = {
     Type: Boolean
     Default: false
 
-### Force/suppress “www” at the beginning of URLs
+### Suppress/force “www” at the beginning of URLs
 
-    Name: https
+    Name: www
     Type: Boolean
-    Default: false (suppress)
+    Default: false (== suppress)
 
 ### Follow Symlinks
 
     Name: SymLinksIfOwnerMatch
     Type: Boolean
-    Default: false `Options +FollowSymlinks`
+    Default: false
 
 By default `Options +FollowSymlinks` is activated.
 If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
@@ -76,7 +76,60 @@ If your hoster does not allow this option, you can switch to `Options +SymLinksI
 
     Name: redirects
     Type: array of objects/strings
-    Default: none
+    Default: null
 
-By default `Options +FollowSymlinks` is activated.
-If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
+Fully customized redirects you can type as string.
+If you have several domains for your site and want them all to link to your main domain, you can setup this via objects with the keys `from` and `to`.
+
+```
+module.exports = {
+    plugins: [
+        {
+            resolve: `gatsby-plugin-htaccess`,
+            options: {
+                redirects: [
+                    { from: 'my-domain.com', to: 'mydomain.com' },
+                    { from: 'my-other-domain.com', to: 'mydomain.com' },
+                    'RewriteRule ^not-existing-domain/?$ /existing-domain [R=301,L,NE]',
+                ],
+            }
+    },
+},
+```
+
+If you want to automatically integrate the Gatsby-redirects,
+
+### Custom Rules
+
+    Name: custom
+    Type: string
+    Default: null
+
+Custom Rules are added at the end of the generated .htaccess-file.
+
+```
+module.exports = {
+    plugins: [
+        {
+            resolve: `gatsby-plugin-htaccess`,
+            options: {
+                custom: `
+                    # This is a custom rule!
+                    # This is a another custom rule!
+                `,
+            }
+    },
+},
+```
+
+## Contributing
+
+Every contribution is very much appreciated.
+I am neither a .htaccess-, nor a Gatsby-expert — so feel free to file bugs, feature- and pull-requests.
+If this plugin is helpful for you, star it.
+
+## Thanks
+
+This plugin is based on **gatsby-plugin-htaccess-redirects** (https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects) by **Gatsby Central**.
+
+The htaccess-directives are taken from **Apache Server Configs** (https://github.com/h5bp/server-configs-apache) by H5BP.
