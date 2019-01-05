@@ -53,9 +53,9 @@ module.exports = {
 
 ### Force https
 
-    Name: https
-    Type: Boolean
-    Default: false
+    Name: | https
+    Type: | Boolean
+    Default: | false
 
 ### Suppress/force “www” at the beginning of URLs
 
@@ -97,7 +97,7 @@ module.exports = {
 },
 ```
 
-If you want to automatically integrate the Gatsby-redirects,
+If you want to automatically integrate the Gatsby-redirects, you should generally go with [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects).
 
 ### Custom Rules
 
