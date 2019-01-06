@@ -26,7 +26,7 @@ Without any configuration the plugin will output these files:
 module.exports = {
     plugins: [
         {
-            resolve: `gatsby-plugin-htaccess`,
+            resolve: 'gatsby-plugin-htaccess',
             options: {
                 https: true,
                 SymLinksIfOwnerMatch: true,
@@ -53,7 +53,7 @@ You can also define a custom RewriteBase.
 module.exports = {
     plugins: [
         {
-            resolve: `gatsby-plugin-htaccess`,
+            resolve: 'gatsby-plugin-htaccess',
             options: {
                 RewriteBase: '/custom/',
             }
@@ -97,7 +97,7 @@ If your hoster does not allow this option, you can switch to `Options +SymLinksI
 | Type:    | array of objects/strings |
 | Default: | null                     |
 
-Fully customized redirects you can define as strings.
+Fully customized redirects you can be defined as strings.
 
 #### Redirecting Domains
 
@@ -107,12 +107,18 @@ If you have several domains for your site and want them all to link to your main
 module.exports = {
     plugins: [
         {
-            resolve: `gatsby-plugin-htaccess`,
+            resolve: 'gatsby-plugin-htaccess',
             options: {
                 redirect: [
                     'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
-                    { from: 'my-domain.com', to: 'mydomain.com' },
-                    { from: 'my-other-domain.com', to: 'mydomain.com' },
+                    {
+                        from: 'my-domain.com',
+                        to: 'mydomain.com'
+                    },
+                    {
+                        from: 'my-other-domain.com',
+                        to: 'mydomain.com'
+                    },
                 ],
             }
     },
@@ -135,7 +141,7 @@ Custom Rules are added at the end of the generated .htaccess-file.
 module.exports = {
     plugins: [
         {
-            resolve: `gatsby-plugin-htaccess`,
+            resolve: 'gatsby-plugin-htaccess',
             options: {
                 custom: `
                     # This is a custom rule!
