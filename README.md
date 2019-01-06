@@ -1,8 +1,16 @@
 # Gatsby Plugin Htaccess
 
 **Gatsby Plugin Htaccess** creates a “.htaccess”-file every time a gatsby build is triggered.
-This file contains by default all rules specified by [Apache Server Configs v3.0.0](https://github.com/h5bp/server-configs-apache) by [H5BP](https://github.com/h5bp).
+This file contains by default all basic rules specified by [Apache Server Configs v3.0.0](https://github.com/h5bp/server-configs-apache) by **H5BP**.
+
 Additionally, the headers for HTTP caching are set as recommended by the Gatsby team: https://www.gatsbyjs.org/docs/caching/
+
+#### Default output
+
+Without any configuration the plugin will output these files:
+
+- [.htaccess-file in /public](https://github.com/AndreasFaust/gatsby-plugin-htaccess/blob/master/defaults/htaccess)
+- [.htaccess-file in /public/static](https://github.com/AndreasFaust/gatsby-plugin-htaccess/blob/master/defaults/static-htaccess)
 
 ## Getting Started
 
@@ -39,7 +47,7 @@ module.exports = {
 | Default: | none           |
 
 Set to `true`, it will output `RewriteBase /`.
-If you want a custom RewriteBase, just type a string.
+You can also define a custom RewriteBase.
 
 ```javascript
 module.exports = {
@@ -78,6 +86,7 @@ module.exports = {
 | Default: | false                |
 
 By default `Options +FollowSymlinks` is activated.
+
 If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.
 
 ### Custom Redirects
@@ -88,7 +97,10 @@ If your hoster does not allow this option, you can switch to `Options +SymLinksI
 | Type:    | array of objects/strings |
 | Default: | null                     |
 
-Fully customized redirects you can type as string.
+Fully customized redirects you can define as strings.
+
+#### Redirecting Domains
+
 If you have several domains for your site and want them all to link to your main domain, you can setup this via objects with the keys `from` and `to`.
 
 ```javascript
@@ -98,9 +110,9 @@ module.exports = {
             resolve: `gatsby-plugin-htaccess`,
             options: {
                 redirect: [
+                    'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
                     { from: 'my-domain.com', to: 'mydomain.com' },
                     { from: 'my-other-domain.com', to: 'mydomain.com' },
-                    'RewriteRule ^not-existing-domain/?$ /existing-domain [R=301,L,NE]',
                 ],
             }
     },
@@ -138,6 +150,7 @@ module.exports = {
 
 Every contribution is very much appreciated.
 Feel free to file bugs, feature- and pull-requests.
+
 If this plugin is helpful for you, star it.
 
 ## Thanks
