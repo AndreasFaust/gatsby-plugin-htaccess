@@ -30,45 +30,46 @@ module.exports = {
 
 ## Options
 
-| **Name**             | **Type**                        | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| :------------------- | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| RewriteBase          | bool or string                  | Set to `true`, it will output `RewriteBase /`. You can also define a custom RewriteBase.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| https                | bool                            | Force https.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| www                  | bool                            | Suppress/force “www” at the beginning of URLs. By default "www" is supressed.                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| SymLinksIfOwnerMatch | bool                            | By default `Options +FollowSymlinks` is activated. <br> If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.                                                                                                                                                                                                                                                                                                 |
-| redirect             | array of objects and/or strings | Fully customized redirects you can be defined as strings. <br> **Redirecting Domains:** If you have several domains for your site and want them all to link to your main domain, you can setup this via objects with the keys `from` and `to`. <br> **Redirects from Gatsby:** Redirects from Gatsby are not automatically integrated. If you just want that, you should generally go with [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects). |
-| custom               | string                          | Custom Rules are added at the end of the file `public/.htaccess`.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Name**             | **Type**                        | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| :------------------- | :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RewriteBase          | bool or string                  | Set to `true`, it will output `RewriteBase /`. You can also define a custom RewriteBase.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| https                | bool                            | Force https.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| www                  | bool                            | Suppress/force “www” at the beginning of URLs. By default "www" is supressed.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| SymLinksIfOwnerMatch | bool                            | By default `Options +FollowSymlinks` is activated. <br> If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.                                                                                                                                                                                                                                                                                                  |
+| redirect             | array of objects and/or strings | Fully customized redirects you can be defined as strings. <br> **Redirecting Domains:** If you have several domains for your site and want them all to link to your main domain, you can set this up via objects with the keys `from` and `to`. <br> **Redirects from Gatsby:** Redirects from Gatsby are not automatically integrated. If you just want that, you should generally go with [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects). |
+| custom               | string                          | Custom Rules are added at the end of the file `public/.htaccess`.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ### Example Options:
 
 ```javascript
 module.exports = {
-    plugins: [
-        {
-            resolve: 'gatsby-plugin-htaccess',
-            options: {
-                RewriteBase: '/custom/',
-                https: true,
-                www: true,
-                SymLinksIfOwnerMatch: true,
-                redirect: [
-                    'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
-                    {
-                        from: 'my-domain.com',
-                        to: 'mydomain.com'
-                    },
-                    {
-                        from: 'my-other-domain.com',
-                        to: 'mydomain.com'
-                    },
-                ],
-                custom: `
-                    # This is a custom rule!
-                    # This is a another custom rule!
-                `,
-            }
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        RewriteBase: '/custom/',
+        https: true,
+        www: true,
+        SymLinksIfOwnerMatch: true,
+        redirect: [
+          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          {
+            from: 'my-domain.com',
+            to: 'mydomain.com',
+          },
+          {
+            from: 'my-other-domain.com',
+            to: 'mydomain.com',
+          },
+        ],
+        custom: `
+            # This is a custom rule!
+            # This is a another custom rule!
+        `,
+      },
     },
-},
+  ],
+}
 ```
 
 ## Contributing
