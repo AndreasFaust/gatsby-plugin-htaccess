@@ -20,7 +20,7 @@ Without any configuration the plugin will output these files:
 
    `yarn add gatsby-plugin-htaccess`
 
-2) Add to plugins in your gatsby-config.js
+2. Add to plugins in your gatsby-config.js
 
 ```javascript
 module.exports = {

@@ -22,7 +22,7 @@ const getContent = (pathToFile, pluginOptions) => {
     return content
 }
 
-exports.onPostBuild = ({ store }, pluginOptions) => {
+exports.onPostBuild = async ({ store }, pluginOptions) => {
     const { program } = store.getState()
     const { redirects, www } = pluginOptions
 
@@ -33,11 +33,34 @@ exports.onPostBuild = ({ store }, pluginOptions) => {
     const htStaticContent = contentReadFile(path.join(__dirname, 'utils/files/static-htaccess'))
 
     // // Return a promise chain
-    return fs
-        .ensureFile(htPath)
-        .then(() => {
-            fs.writeFile(htPath, htContent)
-            fs.writeFile(htStaticPath, htStaticContent)
-        })
-        .catch(e => console.error('onPostBuild error #hq0Kxa', JSON.stringify(e)))
+    try {
+        await fs.ensureFile(htPath)
+    } catch (e) {
+        console.error('onPostBuild error #hq0Kxa', JSON.stringify(e))
+        return
+    }
+    await fs.writeFile(htPath, htContent)
+    await fs.writeFile(htStaticPath, htStaticContent)
+
+    return
 }
+
+// exports.onPostBuild = ({ store }, pluginOptions) => {
+//     const { program } = store.getState()
+//     const { redirects, www } = pluginOptions
+
+//     const htPath = getPath('public', program)
+//     const htContent = getContent(path.join(__dirname, 'utils/files/htaccess'), pluginOptions)
+
+//     const htStaticPath = getPath('public/static', program)
+//     const htStaticContent = contentReadFile(path.join(__dirname, 'utils/files/static-htaccess'))
+
+//     // // Return a promise chain
+//     return fs
+//         .ensureFile(htPath)
+//         .then(() => {
+//             fs.writeFile(htPath, htContent)
+//             fs.writeFile(htStaticPath, htStaticContent)
+//         })
+//         .catch(e => console.error('onPostBuild error #hq0Kxa', JSON.stringify(e)))
+// }
