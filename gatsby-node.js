@@ -1,6 +1,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
+const setHost = require('./utils/setHost')
 const setWWW = require('./utils/setWWW')
 const setHTTPS = require('./utils/setHttps')
 const setRewrites = require('./utils/setRewrites')
@@ -13,6 +14,7 @@ const contentReadFile = (pathToFile) => fs.readFileSync(pathToFile, 'utf8')
 
 const getContent = (pathToFile, pluginOptions) => {
     let content = contentReadFile(pathToFile)
+    content = setHost(content, pluginOptions.host)
     content = setWWW(content, pluginOptions.www)
     content = setHTTPS(content, pluginOptions.https)
     content = setRewrites(content, pluginOptions.redirect)
