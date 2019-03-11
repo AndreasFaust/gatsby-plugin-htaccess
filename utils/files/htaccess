@@ -254,7 +254,7 @@ AddDefaultCharset utf-8
 # | Normalize Host                                                 |
 # ----------------------------------------------------------------------
 
-# Define an URL, every other URL, that leads to your website, 
+# Define the domain, every other domain, that leads to your website, 
 # gets redirected to.
 
 ### NORMALIZE-HOST ###
