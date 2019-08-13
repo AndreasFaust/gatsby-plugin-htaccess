@@ -1,7 +1,8 @@
 const httpsForce = `
 <IfModule mod_rewrite.c>
    RewriteEngine On
-   RewriteCond %{HTTPS} !=on
+   RewriteCond %{HTTP:X-Forwarded-Proto} !https
+   RewriteCond %{HTTPS} off
    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
 `
