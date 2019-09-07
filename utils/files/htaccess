@@ -556,7 +556,7 @@ FileETag None
 # https://www.gatsbyjs.org/docs/caching/
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.html$">
+    <FilesMatch "\.(html|json)$">
         Header set Cache-Control "public, max-age=0, must-revalidate"
     </FilesMatch>
     <FilesMatch "\.(js|css)$">

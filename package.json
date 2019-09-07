@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-htaccess",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "gatsby-plugin-htaccess creates a customizable htaccess-file on build containing the most important default settings for performance and security.",
   "main": "index.js",
   "author": "Andreas Faust",
@@ -16,7 +16,7 @@
     "url": "https://github.com/AndreasFaust/gatsby-plugin-htaccess"
   },
   "dependencies": {
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.1.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {}
