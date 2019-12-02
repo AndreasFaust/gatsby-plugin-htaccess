@@ -3,6 +3,7 @@ const path = require('path')
 
 const setHost = require('./utils/setHost')
 const setWWW = require('./utils/setWWW')
+const setErrorDocument = require('./utils/setErrorDocument')
 const setHTTPS = require('./utils/setHttps')
 const setRewrites = require('./utils/setRewrites')
 const setRewriteBase = require('./utils/setRewriteBase')
@@ -16,6 +17,7 @@ const getContent = (pathToFile, pluginOptions) => {
     let content = contentReadFile(pathToFile)
     content = setHost(content, pluginOptions.host)
     content = setWWW(content, pluginOptions.www)
+    content = setErrorDocument(content, pluginOptions.ErrorDocument)
     content = setHTTPS(content, pluginOptions.https)
     content = setRewrites(content, pluginOptions.redirect)
     content = setRewriteBase(content, pluginOptions.RewriteBase)
@@ -26,7 +28,7 @@ const getContent = (pathToFile, pluginOptions) => {
 
 exports.onPostBuild = async ({ store }, pluginOptions) => {
     const { program } = store.getState()
-    const { redirects, www } = pluginOptions
+    // const { redirects, www } = pluginOptions
 
     const htPath = getPath('public', program)
     const htContent = getContent(path.join(__dirname, 'utils/files/htaccess'), pluginOptions)
@@ -46,23 +48,3 @@ exports.onPostBuild = async ({ store }, pluginOptions) => {
 
     return
 }
-
-// exports.onPostBuild = ({ store }, pluginOptions) => {
-//     const { program } = store.getState()
-//     const { redirects, www } = pluginOptions
-
-//     const htPath = getPath('public', program)
-//     const htContent = getContent(path.join(__dirname, 'utils/files/htaccess'), pluginOptions)
-
-//     const htStaticPath = getPath('public/static', program)
-//     const htStaticContent = contentReadFile(path.join(__dirname, 'utils/files/static-htaccess'))
-
-//     // // Return a promise chain
-//     return fs
-//         .ensureFile(htPath)
-//         .then(() => {
-//             fs.writeFile(htPath, htContent)
-//             fs.writeFile(htStaticPath, htStaticContent)
-//         })
-//         .catch(e => console.error('onPostBuild error #hq0Kxa', JSON.stringify(e)))
-// }
