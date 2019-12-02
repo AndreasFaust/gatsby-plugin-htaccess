@@ -37,6 +37,7 @@ module.exports = {
 | www                  | bool                            | Suppress/force “www” at the beginning of URLs. By default "www" is supressed.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | SymLinksIfOwnerMatch | bool                            | By default `Options +FollowSymlinks` is activated. <br> If your hoster does not allow this option, you can switch to `Options +SymLinksIfOwnerMatch` by setting `SymLinksIfOwnerMatch` to `true`.                                                                                                                                                                                                                                                                                              |
 | host                 | string                          | Defines the domain, every other domain, that leads to your website, gets redirected to. Like **Redirecting Domains** from **redirects**, but without having to define the alternate hosts.                                                                                                                                                                                                                                                                                                     |
+| ErrorDocument                 | string                          | Define custom ErrorDocuments. Default: `ErrorDocument 404 /404/index.html`                                                          |
 | redirect             | array of objects and/or strings | **Fully customized redirects:** Can be defined as strings. <br> **Redirecting Domains:** If there are several domains pointing to your site, you can redirect them to your main domain by setting up objects with the keys `from` and `to`. <br> **Redirects from Gatsby:** Redirects from Gatsby are not automatically integrated. If you just want that, you should generally go with [gatsby-plugin-htaccess-redirects](https://github.com/GatsbyCentral/gatsby-plugin-htaccess-redirects). |
 | custom               | string                          | Custom Rules are added at the end of the file `public/.htaccess`.                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
@@ -53,6 +54,11 @@ module.exports = {
         www: true,
         SymLinksIfOwnerMatch: true,
         host: 'mydomain.com',
+        ErrorDocument: `
+          ErrorDocument 401 /error_pages/401.html
+          ErrorDocument 404 /error_pages/404.html
+          ErrorDocument 500 /error_pages/500.html
+        `,
         redirect: [
           'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
           {
