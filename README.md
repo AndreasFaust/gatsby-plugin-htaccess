@@ -53,7 +53,7 @@ module.exports = {
         https: true,
         www: true,
         SymLinksIfOwnerMatch: true,
-        host: 'mydomain.com',
+        host: 'www.mydomain.com', // if 'www' is set to 'false', be sure to also remove it here!
         ErrorDocument: `
           ErrorDocument 401 /error_pages/401.html
           ErrorDocument 404 /error_pages/404.html
