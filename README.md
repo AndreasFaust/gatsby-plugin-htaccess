@@ -1,7 +1,7 @@
 # Gatsby Plugin Htaccess
 
 **Gatsby Plugin Htaccess** creates a “.htaccess”-file every time a gatsby build is triggered.
-This file contains by default all basic rules specified by [Apache Server Configs v3.0.0](https://github.com/h5bp/server-configs-apache).
+This file contains by default all basic rules specified by [Apache Server Configs v2.4.0](https://github.com/h5bp/server-configs-apache).
 
 Additionally, the headers for HTTP caching are set as recommended by the Gatsby team: https://www.gatsbyjs.org/docs/caching/
 
