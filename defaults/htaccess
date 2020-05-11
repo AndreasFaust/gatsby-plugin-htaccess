@@ -155,26 +155,26 @@ AddDefaultCharset utf-8
 # https://httpd.apache.org/docs/current/mod/mod_mime.html#addcharset
 
 <IfModule mod_mime.c>
-    AddCharset utf-8 .atom \
-                     .bbaw \
-                     .css \
-                     .geojson \
-                     .ics \
-                     .js \
-                     .json \
-                     .jsonld \
-                     .manifest \
-                     .markdown \
-                     .md \
-                     .mjs \
-                     .rdf \
-                     .rss \
-                     .topojson \
-                     .vtt \
-                     .webapp \
-                     .webmanifest \
-                     .xloc \
-                     .xml
+    AddCharset utf-8 .atom
+    AddCharset utf-8 .bbaw
+    AddCharset utf-8 .css
+    AddCharset utf-8 .geojson
+    AddCharset utf-8 .ics
+    AddCharset utf-8 .js
+    AddCharset utf-8 .json
+    AddCharset utf-8 .jsonld
+    AddCharset utf-8 .manifest
+    AddCharset utf-8 .markdown
+    AddCharset utf-8 .md
+    AddCharset utf-8 .mjs
+    AddCharset utf-8 .rdf
+    AddCharset utf-8 .rss
+    AddCharset utf-8 .topojson
+    AddCharset utf-8 .vtt
+    AddCharset utf-8 .webapp
+    AddCharset utf-8 .webmanifest
+    AddCharset utf-8 .xloc
+    AddCharset utf-8 .xml
 </IfModule>
 
 # ######################################################################
